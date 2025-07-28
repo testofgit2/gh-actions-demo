@@ -30,5 +30,6 @@ jobs:
             uses: actions/checkout@v4
 
           - name: after checkout action 
+            if: github.event.inputs.versionName == 'test'
             run: ls
             shell: bash
