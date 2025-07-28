@@ -18,7 +18,12 @@ jobs:
     first-workflow-job:
         name: "first job"
         runs-on: ubuntu-latest
+        container:
+          image: node:14.16
         steps:
+          - name: check node version 
+            run: node -v 
+            
           - name: before checkout action
             if: github.ref == 'refs/head/feature'
             # it means this steps wont run unless 
