@@ -7,9 +7,9 @@ on:
         description: "this is version name for github workflow"
    # repository_dispatch:
     #  types: [test]  
-    #push:
-     # branches:
-      #  - "main"
+  push:
+   # branches:
+   #   - "main"
    # pull_request:
     #  branches:
      #   - "main"
@@ -20,6 +20,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: before checkout action
+            if: github.ref == 'refs/head/feature'
+            # it means this steps wont run unless 
+            # the branch name is feature
             run: ls
             shell: bash
 
